@@ -4,12 +4,28 @@ import { presetAio } from 'untlsn-unocss';
 
 export default u.defineConfig({
 	theme: {
-		colors: {},
+		colors: {
+			bg: {
+				primary: {
+					dark:  '#1F2C36',
+					light: '#FAFAFA',
+				},
+				secondary: {
+					dark:  '#2A3743',
+					light: '#FFFFFF',
+				},
+			},
+		},
 	},
 	presets: [
 		u.presetUno(),
 		u.presetWind(),
-		u.presetIcons(),
+		u.presetIcons({
+			extraProperties: {
+				display:       'inline-block',
+				'line-height': '1em',
+			},
+		}),
 		u.presetTypography(),
 		u.presetWebFonts(),
 		presetAio(),
@@ -18,5 +34,5 @@ export default u.defineConfig({
 		u.transformerDirectives(),
 		u.transformerCompileClass(),
 		u.transformerVariantGroup(),
-	]
-})
+	],
+});

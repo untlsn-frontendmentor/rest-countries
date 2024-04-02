@@ -7,6 +7,9 @@
     "start": "vinxi start"
   },
   "dependencies": {
+    "@iconify-json/ph": "^1.1.11",
+    "@solidjs/meta": "^0.29.3",
+    "@solidjs/router": "^0.13.1",
     "@solidjs/start": "1.0.0-rc.0",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",

@@ -26,7 +26,7 @@ export default function TheSearchContinentList() {
 
 	return (
 		<div
-			class="shadow-lg relative bg-bg-secondary-light dark:bg-bg-secondary-dark rounded"
+			class="shadow-lg relative bg-bg-secondary-light dark:bg-bg-secondary-dark rounded h-54px"
 			onClick={() => {
 				innerClick = true;
 			}}

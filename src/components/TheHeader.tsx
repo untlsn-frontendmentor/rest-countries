@@ -18,11 +18,18 @@ export default function TheHeader() {
 	};
 
 	return (
-		<header class="sticky flex justify-between bg-bg-secondary-light dark:bg-bg-secondary-dark py-4 px-12 shadow-lg">
-			<h1 class="text-2xl font-bold">Where in the world?</h1>
-			<button type="button" class="before:(c_ i-ph-moon mr-2) before:dark:i-ph-moon-fill outline-none" onClick={toggleDarkMode}>
-				Dark Mode
-			</button>
-		</header>
+		<>
+			<header class="fixed flex items-center justify-between bg-bg-secondary-light dark:bg-bg-secondary-dark h-15 w-full top-0 left-0 px-12 max-sm:px-4 shadow-lg">
+				<h1 class="text-2xl font-bold max-sm:text-lg">
+					<a href="/">
+						Where in the world?
+					</a>
+				</h1>
+				<button type="button" class="before:(c_ i-ph-moon mr-2) before:dark:i-ph-moon-fill outline-none" onClick={toggleDarkMode}>
+					Dark Mode
+				</button>
+			</header>
+			<div aria-hidden class="h-15" />
+		</>
 	);
 }

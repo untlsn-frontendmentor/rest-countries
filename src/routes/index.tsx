@@ -31,7 +31,7 @@ export default function Page() {
 	return (
 		<main class="mx-12">
 			<Title>{title()}</Title>
-			<nav class="my-4 flex justify-between">
+			<nav class="my-4 flex-(~ wrap) gap-8 justify-between">
 				<TheSearchInput />
 				<TheSearchContinentList />
 			</nav>

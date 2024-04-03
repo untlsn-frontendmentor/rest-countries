@@ -29,14 +29,14 @@ export default function Page() {
 	};
 
 	return (
-		<main>
+		<main class="mx-12">
 			<Title>{title()}</Title>
-			<nav class="mx-12 my-4 flex justify-between">
+			<nav class="my-4 flex justify-between">
 				<TheSearchInput />
 				<TheSearchContinentList />
 			</nav>
 			<article>
-				<ul class="grid-(~ cols-fit-80) gap-5 mx-12 place-items-center">
+				<ul class="grid-(~ cols-fit-80) gap-5 place-items-center">
 					<Suspense>
 						<For
 							each={countriesQuery()}

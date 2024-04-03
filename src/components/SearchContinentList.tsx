@@ -1,4 +1,4 @@
-import { createEffect, createSelector, createSignal, For, onCleanup, onMount, Show } from 'solid-js';
+import { createSelector, createSignal, For, Show } from 'solid-js';
 import { useSearchParams } from '@solidjs/router';
 import clsx from 'clsx';
 import useDocumentEventListener from '~/hooks/useDocumentEventListener';
@@ -32,7 +32,7 @@ export default function SearchContinentList() {
 		>
 			<button
 				type="button"
-				class="after:(c_ i-ph-carret-down) size-full px-6"
+				class="after:(c_ i-ph-caret-down ml-8) size-full px-6"
 				onClick={() => setOpen(!open())}
 			>
 				Filter by Region

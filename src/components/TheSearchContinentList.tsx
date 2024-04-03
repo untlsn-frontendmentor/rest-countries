@@ -2,6 +2,7 @@ import { createSelector, createSignal, For, Show } from 'solid-js';
 import { useSearchParams } from '@solidjs/router';
 import clsx from 'clsx';
 import useDocumentEventListener from '~/hooks/useDocumentEventListener';
+import { SearchSearchParamsType } from '~/components/TheSearchInput';
 
 const continents = [
 	'Africa',
@@ -11,8 +12,8 @@ const continents = [
 	'Oceania',
 ];
 
-export default function SearchContinentList() {
-	const [query, setQuery] = useSearchParams<{ continent?: string }>();
+export default function TheSearchContinentList() {
+	const [query, setQuery] = useSearchParams<SearchSearchParamsType>();
 
 	const isSelected = createSelector(() => query.continent);
 	const [open, setOpen] = createSignal(false);

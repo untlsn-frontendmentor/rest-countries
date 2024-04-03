@@ -9,7 +9,7 @@ export const queryCountriesList = cache(async (payload: {
 
 	return data.filter((v) => {
 		if (payload.continent && payload.continent != v.region) return false;
-		return !(payload.pattern && !v.name.includes(payload.pattern));
+		return !payload.pattern || v.name.includes(payload.pattern);
 	}).map((v, id) => ({
 		id,
 		flag:       v.flag,

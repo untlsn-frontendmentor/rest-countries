@@ -1,5 +1,5 @@
-import SearchInput from '~/components/SearchInput';
-import SearchContinentList from '~/components/SearchContinentList';
+import TheSearchInput, { SearchSearchParamsType } from '~/components/TheSearchInput';
+import TheSearchContinentList from '~/components/TheSearchContinentList';
 import { Title } from '@solidjs/meta';
 import { createAsync, RouteDefinition, useSearchParams } from '@solidjs/router';
 import { queryCountriesList } from '~/server/countries';
@@ -7,17 +7,19 @@ import { For, Suspense } from 'solid-js';
 
 export const route = {
 	load() {
-		const [query] = useSearchParams<{ continent?: string }>();
+		const [query] = useSearchParams<SearchSearchParamsType>();
 		void queryCountriesList({
 			continent: query.continent,
+			pattern:   query.pattern,
 		});
 	},
 } satisfies RouteDefinition;
 
 export default function Page() {
-	const [query] = useSearchParams<{ continent?: string }>();
+	const [query] = useSearchParams<SearchSearchParamsType>();
 	const countriesQuery = createAsync(() => queryCountriesList({
 		continent: query.continent,
+		pattern:   query.pattern,
 	}));
 
 	const title = () => {
@@ -30,11 +32,11 @@ export default function Page() {
 		<main>
 			<Title>{title()}</Title>
 			<nav class="mx-12 my-4 flex justify-between">
-				<SearchInput />
-				<SearchContinentList />
+				<TheSearchInput />
+				<TheSearchContinentList />
 			</nav>
 			<article>
-				<ul class="grid-(~ cols-fit-80) gap-20 mx-20">
+				<ul class="grid-(~ cols-fit-80) gap-5 mx-12 place-items-center">
 					<Suspense>
 						<For
 							each={countriesQuery()}
@@ -42,7 +44,7 @@ export default function Page() {
 								const link = () => `/countries/${it.id}`;
 
 								return (
-									<li class="bg-bg-secondary-light dark:bg-bg-secondary-dark rounded-lg overflow-hidden">
+									<li class="bg-bg-secondary-light dark:bg-bg-secondary-dark rounded-lg overflow-hidden max-w-80">
 										<a href={link()}>
 											<img src={it.flag} alt="Flag" class="h-1/2 mx-auto" />
 										</a>

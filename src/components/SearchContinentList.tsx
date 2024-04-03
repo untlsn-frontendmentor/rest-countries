@@ -4,11 +4,11 @@ import clsx from 'clsx';
 import useDocumentEventListener from '~/hooks/useDocumentEventListener';
 
 const continents = [
-	'aftica',
-	'america',
-	'asia',
-	'europa',
-	'oceania',
+	'Africa',
+	'Americas',
+	'Asia',
+	'Europa',
+	'Oceania',
 ];
 
 export default function SearchContinentList() {
